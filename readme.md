@@ -7,6 +7,6 @@ Shell scripts.
 ```
 mkdir $HOME/bin
 PATH=$PATH:$HOME/bin
-cp [file name].sh $HOME/bin/[script name]
-chmod +x $HOME/bin/[script name]
+cp [file name].sh $HOME/bin/[command name]
+chmod +x $HOME/bin/[command name]
 ```
