@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-# Reinstall Node packages.
+# Reinstall Node packages in CWD.
 rm -rf node_modules
 npm install

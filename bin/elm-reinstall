@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Reinstall Node and Elm packages.
+# Reinstall Elm and Node packages in CWD.
 rm -rf node_modules
 rm -rf elm-stuff
 rm -rf test/elm-stuff

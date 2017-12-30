@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# Install all scripts in `./bin` to `/usr/local/bin`.
+# Run as sudo
+ls ./bin |
+while read filename
+do
+  rm /usr/local/bin/$filename
+done 
