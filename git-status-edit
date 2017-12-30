@@ -1,0 +1,4 @@
+#!/bin/bash
+# open all files logged by git-status in vim
+vim $(git status --porcelain | awk '{print $2}')
+# vim $(git status --porcelain | rev | cut -d ' ' -f 1 | rev)
