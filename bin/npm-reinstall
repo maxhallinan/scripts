@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+# Reinstall Node packages.
+rm -rf node_modules
+npm install

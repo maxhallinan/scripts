@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Reinstall Node and Elm packages.
+rm -rf node_modules
+rm -rf elm-stuff
+rm -rf test/elm-stuff
+npm install
+elm-package install -y
+cd test
+elm-package install -y
