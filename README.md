@@ -16,6 +16,7 @@ sudo ./install
 **Uninstall**
 
 ```shell
+chmod +x ./uninstall
 sudo ./uninstall
 ```
 
