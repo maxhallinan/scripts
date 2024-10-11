@@ -1,5 +1,5 @@
 {
-  description = "maxhallinan/scripts";
+  description = "maxhallinan/shell-scripts";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
@@ -11,12 +11,14 @@
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
-        packageName = "maxhallinan-scripts";
+        packageName = "shell-scripts";
       in {
-        packages.ggit-checkout = pkgs.writeShellScriptBin "ggit-checkout"
-          ''
-            echo "Hello World!";
-            echo $1;
-          '';
+        packages.hello-world = pkgs.writeShellApplication {
+          name = "hello-world";
+
+          runtimeInputs = [ pkgs.cowsay ];
+
+          text = builtins.readFile ./scripts/hello-world.sh;
+        };
       });
 }
