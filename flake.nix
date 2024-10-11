@@ -13,6 +13,13 @@
 
         packageName = "shell-scripts";
       in {
+        packages.git-sweep-stage = pkgs.writeShellApplication {
+          name = "git-sweep-stage";
+
+          runtimeInputs = [ pkgs.git ];
+
+          text = builtins.readFile ./scripts/git-sweep-stage.sh;
+        };
         packages.fix-homebrew-postmasterpid = pkgs.writeShellApplication {
           name = "fix-homebrew-postmasterpid";
 
