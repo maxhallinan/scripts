@@ -13,6 +13,13 @@
 
         packageName = "shell-scripts";
       in {
+        packages.edit-changed-files = pkgs.writeShellApplication {
+          name = "edit-changed-files";
+
+          runtimeInputs = [pkgs.git];
+
+          text = builtins.readFile ./scripts/edit-changed-files.sh;
+        };
         packages.create-filepath = pkgs.writeShellApplication {
           name = "create-filepath";
 
