@@ -13,6 +13,13 @@
 
         packageName = "shell-scripts";
       in {
+        packages.fix-homebrew-postmasterpid = pkgs.writeShellApplication {
+          name = "fix-homebrew-postmasterpid";
+
+          runtimeInputs = [];
+
+          text = builtins.readFile ./scripts/fix-homebrew-postmasterpid.sh;
+        };
         packages.create-filepath = pkgs.writeShellApplication {
           name = "create-filepath";
 
