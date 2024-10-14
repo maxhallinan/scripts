@@ -6,13 +6,22 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
         packageName = "shell-scripts";
-      in {
+      in
+      {
+        formatter = pkgs.nixfmt-rfc-style;
+
         packages.git-sweep-stage = pkgs.writeShellApplication {
           name = "git-sweep-stage";
 
@@ -23,14 +32,14 @@
         packages.fix-homebrew-postmasterpid = pkgs.writeShellApplication {
           name = "fix-homebrew-postmasterpid";
 
-          runtimeInputs = [];
+          runtimeInputs = [ ];
 
           text = builtins.readFile ./scripts/fix-homebrew-postmasterpid.sh;
         };
         packages.create-filepath = pkgs.writeShellApplication {
           name = "create-filepath";
 
-          runtimeInputs = [];
+          runtimeInputs = [ ];
 
           text = builtins.readFile ./scripts/create-filepath.sh;
         };
@@ -51,5 +60,6 @@
 
           text = builtins.readFile ./scripts/hello-world.sh;
         };
-      });
+      }
+    );
 }
